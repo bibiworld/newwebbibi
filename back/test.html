@@ -1,0 +1,50 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+<script>
+//显示所有存在“ID”属性的HTML元素
+function displayallelem(){
+   var elems = document.getElementsByTagName("*");
+
+   for(var i=0;i<elems.length;i++){
+     if (elems[i].hasAttribute("id")){
+       tmp = elems[i].id + ", fieldtype = " + elems[i].getAttribute("fieldtype") + "元素类型=" + elems[i].nodeName;
+     alert(tmp);
+     }
+   }    
+}
+
+  function display(y){
+    var elems = document.getElementsByTagName("*");
+	
+	for(var i=0;i<elems.length;i++){
+	  //alert("elem tri");
+	  if (elems[i].hasAttribute("id")){
+	    //alert("has id");
+		//tmp = elems[i].id + ", fieldtype = " + elems[i].getAttribute("fieldtype") + "元素类型=" + elems[i].nodeName;
+	    tmp = elems[i].id+ "";
+		alert(tmp);
+		/*if (tmp == y){
+		  alert("yes");
+		  $(y).style.display = "";
+		}
+		else{
+		  alert("no");
+		  $(y).style.display = "none";
+		}*/
+	  }
+	} 
+  }  
+</script>
+</head>
+<body>
+<h1>表单元素遍历测试 JavaScript</h1>
+<p id="demo" fieldtype="test">This is a paragraph.</p>
+<div> 
+<input id="name" fieldtype="char">名称</input><br>
+通过自定义属性“fieldtype”来定义数据类型。<br>
+<input id="old" fieldtype="number" value="42">年龄</input><br>
+<button id="test" type="button" onClick="display('search')">Display Element</button>
+</div> 
+</body>
+</html>
