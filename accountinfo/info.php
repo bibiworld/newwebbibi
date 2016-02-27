@@ -16,15 +16,16 @@ include ("conn/conn.php");
 		else{
 	?>
  			<h3 class="sub-header"> Account Info: <?php  echo $GuestName;?></h3>
- 			<h6 > <a href="#"> Modify Account Name</a> </h6>
- 			<h6 > <a href="#"> Modify Password</a> </h6>
- 			<h3 class="sub-header"> Function : </h3>
 	<?php
-			if ($GuestName == "root"){
-				echo "<a href='#'>Add Word</a>" . "</ br>";
-			}
-			else{
-			}
+		if ($GuestName != "root"){
+ 			echo '<h6 > <a href="ChangeName.php"> Modify Account Name</a> </h6>';
+ 			echo '<h6 > <a href="#"> Modify Password</a> </h6>';
+		}
+		else{
+			echo '<h3>Your account is root, the default password is "bibiworld";</h3>';
+		}
+	?>
+	<?php
 		}
 	?>
 </body>

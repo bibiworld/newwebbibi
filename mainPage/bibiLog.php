@@ -61,7 +61,13 @@
             <li><a href="#">Search</a></li>
             <li><a href="#">Settings</a></li>
             <li><a href="../signup.php">SIGNUP</a></li>
-            <li><a href="../signin.php">SIGNIN</a></li>
+			<?php
+				if ($GuestName == "guest")
+            		echo '<li><a href="../signin.php">SIGNIN</a></li>';
+				else
+					echo '<li><a href="../reload.php">LOGOUT</a></li>';
+          	?>
+		  </ul>
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -91,12 +97,6 @@
             <li><a href="bibiSearch.php">Search</a></li>
             <li><a href="bibiAdSearch.php">Advanced Search</a></li>
             <li><a href="bibiFuzzyMatch.php">Fuzzy Matching</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Search</a></li>
-            <li><a href="#" onClick="bibiSearch.php">Search</a></li>
-            <li><a href="#" onClick="bibiAdSearch.php">Advanced Search</a></li>
-            <li><a href="#" onClick="bibiFuzzyMatch.php">Fuzzy Matching</a></li>
           </ul>
         </div>
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

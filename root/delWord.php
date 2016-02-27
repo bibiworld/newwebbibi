@@ -26,6 +26,11 @@ function fresh()
 	//location.replace(location.href);
 	//history.go(0);
 }
+
+function back()
+{
+	window.location = "../index.php";
+}
 </script>
 
 <style type="text/css">
@@ -56,12 +61,13 @@ function fresh()
 		<tr>
 			<td><div align="center">
 		<?php
-		#提及表单中数据
-		$_name = mysql_real_escape_string($_POST['name']);
 		
         if ($_SERVER['REQUEST_METHOD'] != 'POST')
             echo "<input type='submit' name='Submit' value='删除' />";
 		else{
+		#提及表单中数据
+		$_name = mysql_real_escape_string($_POST['name']);
+		
 			$sql = "select * from bibi_word where spell = '$_name'";
 			$result = mysql_query($sql);
 			if (mysql_num_rows($result) == 0){
@@ -75,11 +81,16 @@ function fresh()
 				}
 				#echo "<button typ" . "&nbsp;";
 				#echo "<button type='submit' onClick=''>确定删除？</button>";
-				echo "<button type='button' onClick='delWord($_name)'>确定删除？</button>";
-				echo "<button type='button' onClick='fresh()'>取消</button>";
+				$sql = "delete from bibi_word where spell='$_name'";
+				mysql_query($sql);
+				echo "Sucessfully delete! Word infomation as above." . "<br />";
+				echo "<button type='button' onClick='fresh()'>确定</button>";
+				//echo "<button type='button' onClick='delWord($_name)'>确定删除？</button>";
+				//echo "<button type='button' onClick='fresh()'>取消</button>";
 			}
 		}
 		?>
+			<button type='button' onClick='back()'>返回</button>
           	</div></td>
         </tr>
       </table>

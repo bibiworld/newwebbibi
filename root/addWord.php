@@ -30,6 +30,7 @@ function chkinput($str){
   #echo "<br/>" . mb_strlen($str) . ' ' . $len . "<br />";
   $end = mb_substr($str, $len-1, 1);
   if (($str[0] == '[') && ($end == ']')){
+  	$i = 0;
 	while($i < $len-1){
 		$here = mb_substr($str, $i, 1);
 		$next = mb_substr($str, $i+1, 1);
@@ -44,7 +45,16 @@ function chkinput($str){
   	return false;
   }
 }
+
 ?>
+
+<script language="javascript">
+
+function back()
+{
+	window.location = "../index.php";
+}
+</script>
 
 <style type="text/css">
 <!--
@@ -101,7 +111,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 			<br />
 		  eg : [We|did|a|computer|search|for|blinder.][我们用电脑做了一次关于盲人的搜索。]</p>
 			<div align="center">
-	          <input type="submit" name="Submit" value="Submit" />
+	          <input type="submit" name="Submit" value="提交" />
+			  <button type="button" onclick="back()">返回</button>
 		</div>
     </form>    </td>
   </tr>
@@ -109,10 +120,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <td>
   		<?php
 		#提交表单中的单双引号
-		$_name = mysql_real_escape_string($_POST['name']);
-		$_yinbiao = mysql_real_escape_string($_POST['yinbiao']);
-		$_epn = mysql_real_escape_string($_POST['epn']);
-		$_eg = mysql_real_escape_string($_POST['eg']);
+		if (($_SERVER['REQUEST_METHOD'] == 'POST')){
+			$_name = mysql_real_escape_string($_POST['name']);
+			$_yinbiao = mysql_real_escape_string($_POST['yinbiao']);
+			$_epn = mysql_real_escape_string($_POST['epn']);
+			$_eg = mysql_real_escape_string($_POST['eg']);
+		}
 			  
 		$isRight = (($nameErr == "") && ($epnErr == ""));
 		if ((($_SERVER['REQUEST_METHOD'] == 'POST')) && ($isRight)){

@@ -34,6 +34,7 @@
 	else
 		$GuestName = "guest";
 ?>
+
   <style type="text/css">
 	<!--
 	.fixFont {
@@ -62,8 +63,13 @@
             <li><a href="#">Search</a></li>
             <li><a href="#">Settings</a></li>
             <li><a href="signup.php">SIGNUP</a></li>
-            <li><a href="signin.php">SIGNIN</a></li>
-          </ul>
+			<?php
+				if ($GuestName == "guest")
+            		echo '<li><a href="signin.php">SIGNIN</a></li>';
+				else
+					echo '<li><a href="reload.php">LOGOUT</a></li>';
+          	?>
+		  </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
           </form>

@@ -61,6 +61,14 @@ function chkName()
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                     </div>
                 </div>
+				<div class="form-group">
+                    <label for="InputEmail">Enter Email</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="InputEmail" id="InputEmail" placeholder="Enter Email">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    </div>
+                </div>
+				<!--
                 <div class="form-group">
                     <label for="InputEmail">Enter Email</label>
                     <div class="input-group">
@@ -75,6 +83,7 @@ function chkName()
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                     </div>
                 </div>
+				-->
 				<div class="form-group">
                     <label for="InputEmail">Enter Password</label>
                     <div class="input-group">
@@ -85,7 +94,7 @@ function chkName()
                 <div class="form-group">
                     <label for="InputMessage">Enter Message</label>
                     <div class="input-group">
-                        <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" required></textarea>
+                        <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5"></textarea>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                     </div>
                 </div>
