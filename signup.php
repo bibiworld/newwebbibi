@@ -61,6 +61,7 @@ function chkName()
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                     </div>
                 </div>
+				<!--
 				<div class="form-group">
                     <label for="InputEmail">Enter Email</label>
                     <div class="input-group">
@@ -68,7 +69,8 @@ function chkName()
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                     </div>
                 </div>
-				<!--
+				-->
+				
                 <div class="form-group">
                     <label for="InputEmail">Enter Email</label>
                     <div class="input-group">
@@ -83,7 +85,7 @@ function chkName()
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                     </div>
                 </div>
-				-->
+				
 				<div class="form-group">
                     <label for="InputEmail">Enter Password</label>
                     <div class="input-group">
@@ -136,10 +138,20 @@ function chkName()
 			$sql = "insert into bibi_admin (name, pwd, tishi, email)
 				values('$name', '$pwd', '$message', '$email')";
 			mysql_query($sql) or die("add account Failed." . mysql_error());
-			echo '[ <div class="alert alert-success">
-                    <strong><span class="glyphicon glyphicon-ok"></span> Success! Message sent.</strong>
+			
+			$sendEmail = "postemail.py " . $email;
+			system($sendEmail, $ret);
+			if ($ret == 0){
+				echo '<div class="alert alert-success">
+                    <strong><span class="glyphicon glyphicon-ok"></span> 亲!我们已送上真诚的祝福。</strong>
                 </div>';
-			#echo "<alert>Success registe!</alert>";
+			
+			}else{
+				echo '<div class="alert alert-success">
+                    <strong><span class="glyphicon glyphicon-ok"></span> 抱歉! 我们没有找到您的邮箱。</strong>
+                </div>';
+			
+			}
 			
 			$fin = fopen("log/addUser.txt",'a');
 			if (!$fin){
